@@ -1,42 +1,45 @@
 # Acme Inventory Management System
 ## Project summary
 ### One-sentence description of the project
-Our project aims to help the Acme Corporation Food Bank's struggles with managing its inventory of food and hygiene donations, tracking item quantities, expiration dates, and maintaining detailed records for accurate reporting through the use of an inventory management system.
+This inventory management system addresses the Acme Corporation Food Bank's challenges with tracking item quantities, managing expiration dates, and maintaining accurate records for reporting purposes. The goal is to streamline operations, reduce manual errors, and support timely decision-making through real-time dashboards and automated threshold alerts.
 ### Additional information about the project
-The Acme Corporation Food Bank faces challenges in managing its inventory of food and hygiene donations due to the frequent and varied nature of the donations. Tracking items, their quantities, and expiration dates, along with maintaining detailed records for accurate reporting, is a critical need. Also, the organization requires an efficient way to generate reports from data collected from multiple entities. Currently, there is no comprehensive solution in place to manage these challenges effectively, creating inefficiencies and potential risks of inaccurate/incomplete data management.
+Frequent and varied donations make inventory control challenging for food banks. This system provides administrators with the ability to view and update inventory records in real time, receive automatic alerts for low stock levels and items nearing expiration, and visualize inventory trends through interactive weekly and monthly charts. It also offers secure user management, including login authentication, two-factor verification (2FA), and password recovery. By replacing manual tracking and spreadsheet-based systems, this solution enhances accuracy, improves transparency, and supports more efficient and reliable service delivery.
 ## Installation
 ### Prerequisites
-TODO: List what a user needs to have installed before running the installation
-instructions below (e.g., git, which versions of Ruby/Rails)
+Before starting, ensure you have:
 1. Git
-2. Python
+2. Python 3.12 or higher
+3. pip
+
 ### Add-ons
 
 ### Installation Steps
 #### MacOS
-1. git clone https://github.com/tbergdahl/InventoryManagement.git
-2. cd InventoryManagement
-3. python -m venv venv
-4. source venv/bin/activate
-5. pip install -r requirements.txt
+1. git clone git clone https://github.com/shamney/Shampurnad.github.io.git
+2. cd Shampurnad.github.io
+3. create virtual environment python -m venv venv
+4. active the virtual environment source venv/bin/activate
+5. install dependencies that run the server pip install -r requirements.txt
 6. python manage.py runserver
+
 #### Windows
-1. git clone https://github.com/tbergdahl/InventoryManagement.git
-2. cd InventoryManagement
+1. git clone https://github.com/shamney/Shampurnad.github.io.git
+2. cd Shampurnad.github.io
 3. python -m venv venv
-4. venv\Scripts\Activate
+4. venv\Scripts\activate
 5. pip install -r requirements.txt
 6. python manage.py runserver
+
 ## Known Problems
 As of right now there are no known problems. Just missing functionality of most of the app.
 ## Contributing
-TODO: Leave the steps below if you want others to contribute to your project.
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+Fork the repository
+Create a new branch: git checkout -b feature-xyz
+Make your changes
+Commit: git commit -am 'Add feature XYZ'
+Push: git push origin feature-xyz
+Submit a pull request 
 ## Additional Documentation
-* [Sprint report](https://github.com/tbergdahl/InventoryManagement/blob/main/sprint-report.md)
+* 
 ## License
 [MIT License](https://github.com/tbergdahl/InventoryManagement/blob/main/License.txt)
