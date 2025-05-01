@@ -42,4 +42,4 @@ Submit a pull request
 ## Additional Documentation
 * 
 ## License
-Copyright (https://github.com/tbergdahl/InventoryManagement) [2025]
+
