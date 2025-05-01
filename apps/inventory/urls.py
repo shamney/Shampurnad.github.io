@@ -34,9 +34,11 @@ urlpatterns = [
     # # Test Chart View
     # path("test_charts/", views.test_charts, name="test_charts"),
 
-    # Thresholds
-    path("thresholds/", views.threshold_list, name="threshold_list"),
-    path("thresholds/edit/<int:pk>/", views.edit_threshold, name="edit_threshold"),
-    path("thresholds/delete/<int:pk>/", views.delete_threshold, name="delete_threshold"),
-    path("thresholds/add/", views.add_threshold, name="add_threshold"),
+   # Thresholds
+path("thresholds/", views.threshold_list, name="threshold_list"),
+path("thresholds/add/", views.add_threshold, name="add_threshold"),
+path("thresholds/edit/<int:pk>/", views.edit_threshold, name="edit_threshold"),
+path("thresholds/confirm-delete/<int:pk>/", views.confirm_delete_threshold, name="confirm_delete_threshold"),
+path("thresholds/delete/<int:pk>/", views.delete_threshold, name="delete_threshold"),
+
 ]

@@ -21,7 +21,10 @@
               <div class="mb-2"><label>Name:</label><input class="form-control" name="name" value="{{ item.name }}"></div>
               <div class="mb-2"><label>Category:</label><input class="form-control" name="category" value="{{ item.category }}"></div>
               <div class="mb-2"><label>Count:</label><input class="form-control" name="count" value="{{ item.count }}"></div>
-              <div class="mb-2"><label>Expiry Date:</label><input type="date" class="form-control" name="expiry_date" value="{{ item.expiry_date }}"></div>
+              <div class="mb-2">
+                <label>Expiry Date:</label>
+                <input type="date" class="form-control" name="expiry_date" value="{{ item.expiry_date|date:'Y-m-d' }}">
+              </div>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Save</button>
@@ -74,7 +77,7 @@
           <th>Expiry Date</th>
           <th>Min Qty</th>
           <th>Max Qty</th>
-          <th>Message</th>  <!-- ✅ Corrected Message header -->
+          <th>Message</th>
           {% if is_admin %}
             <th>Actions</th>
           {% endif %}
@@ -98,7 +101,7 @@
             <td>{{ item.expiry_date|date:"d/m/Y"|default:"N/A" }}</td>
             <td>{{ threshold.min_quantity|default:"-" }}</td>
             <td>{{ threshold.max_quantity|default:"-" }}</td>
-            <td>{{ row.message|default:"-" }}</td> <!-- ✅ Corrected Message rendering -->
+            <td>{{ row.message|default:"-" }}</td>
             {% if is_admin %}
               <td>
                 <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editItemModal-{{ item.id }}">✏️</button>

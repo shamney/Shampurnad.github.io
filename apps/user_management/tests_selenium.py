@@ -85,7 +85,7 @@ class UserLoginAndInventoryTest(LiveServerTestCase):
             except:
                 pass
 
-            #  Click Thresholds tab (optional)
+            #  Click Thresholds tab
             try:
                 thresholds_link = driver.find_element(By.LINK_TEXT, "Manage Thresholds")
                 thresholds_link.click()

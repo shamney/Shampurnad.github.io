@@ -323,8 +323,73 @@ def load_test_data(request):
     return redirect('inventory_home')
 
 # Inventory home with filters and notifications
+#threhold settings
+from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from .models import ThresholdSetting  # ✅ Make sure this is correctly imported
 
-# Load Test Data from ThresholdSetting
+@login_required
+def threshold_list(request):
+    if request.user.usertype != 'ADMIN':
+        return redirect('inventory_home')
+    
+    if request.method == 'POST':
+        #  Handle adding a new threshold
+        if 'add_threshold' in request.POST:
+            product = request.POST.get('product')
+            min_quantity = request.POST.get('min_quantity')
+            max_quantity = request.POST.get('max_quantity')
+            template_message = request.POST.get('template_message')
+
+            if product and min_quantity and max_quantity and template_message:
+                ThresholdSetting.objects.create(
+                    product=product,
+                    min_quantity=min_quantity,
+                    max_quantity=max_quantity,
+                    template_message=template_message,
+                    created_at=timezone.now()  # Optional, if you have created_at field
+                )
+            return redirect('threshold_list')
+
+        # 🚀 Handle editing an existing threshold
+        elif 'edit_threshold' in request.POST:
+            pk = request.POST.get('threshold_id')
+            threshold = get_object_or_404(ThresholdSetting, pk=pk)
+            threshold.product = request.POST.get('product')
+            threshold.min_quantity = request.POST.get('min_quantity')
+            threshold.max_quantity = request.POST.get('max_quantity')
+            threshold.template_message = request.POST.get('template_message')
+            threshold.save()
+            return redirect('threshold_list')
+
+    #  For GET request: show all thresholds
+    thresholds = ThresholdSetting.objects.all()
+    return render(request, 'threshold_list.html', {'thresholds': thresholds})
+ 
+
+@login_required
+def confirm_delete_threshold(request, pk):
+    if request.user.usertype != 'ADMIN':
+        return redirect('inventory_home')
+    
+    threshold = get_object_or_404(ThresholdSetting, pk=pk)
+    return render(request, 'confirm_delete_threshold.html', {'threshold': threshold})
+
+
+@login_required
+def delete_threshold(request, pk):
+    if request.user.usertype != 'ADMIN':
+        return redirect('inventory_home')
+
+    threshold = get_object_or_404(ThresholdSetting, pk=pk)
+
+    if request.method == 'POST':
+        threshold.delete()
+        return redirect('user_dashboard')
+
+    return redirect('user_dashboard')
+
 @login_required
 def load_test_data(request):
     if request.user.usertype != 'ADMIN':
@@ -332,26 +397,24 @@ def load_test_data(request):
 
     # Clear existing inventory data
     InventoryItem.objects.all().delete()
-
     thresholds = ThresholdSetting.objects.all()
 
     for threshold in thresholds:
-        if threshold.product:  # Make sure product is not None
+        if threshold.product:
             quantity = random.randint(threshold.min_quantity, threshold.max_quantity)
             expiry_date = timezone.now().date() + timedelta(days=random.randint(10, 60))
 
             InventoryItem.objects.create(
-                name=threshold.product,         
-                count=quantity,                 
-               expiry_date=expiry_date,
-               min_quantity=threshold.min_quantity,
-               max_quantity=threshold.max_quantity,
-              template_message=threshold.template_message
+                name=threshold.product,
+                count=quantity,
+                expiry_date=expiry_date,
+                min_quantity=threshold.min_quantity,
+                max_quantity=threshold.max_quantity,
+                template_message=threshold.template_message
             )
 
-
-    messages.success(request, "Test inventory data loaded successfully!")
     return redirect('inventory_home')
+
 
 
 # Inventory Overview Page
@@ -385,7 +448,7 @@ def inventory_home(request):
         if item.expiry_date and item.expiry_date < today:
             notifications.append(f"❗ {item.name} has expired on {item.expiry_date.strftime('%d %b %Y')}")
 
-        #  replacement of {stock}
+        #  SMARTER replacement of {stock}
         if threshold and threshold.template_message and item.count is not None:
             message = threshold.template_message.replace("{stock}", str(item.count))
         else:
@@ -425,16 +488,25 @@ def create_inventory_item(request):
 
 
 #  Edit an inventory item
+
+
 @login_required
 def edit_item(request, item_id):
     if request.user.usertype != 'ADMIN':
         return redirect('inventory_home')
 
     item = get_object_or_404(InventoryItem, id=item_id)
+
     if request.method == 'POST':
         form = InventoryItemForm(request.POST, instance=item)
         if form.is_valid():
-            form.save()
+            updated_item = form.save(commit=False)
+
+            # Check if expiry_date was left empty, keep old expiry_date
+            if not form.cleaned_data.get('expiry_date'):
+                updated_item.expiry_date = item.expiry_date
+
+            updated_item.save()
             messages.success(request, "Item updated successfully!")
             return redirect('inventory_home')
     else:
