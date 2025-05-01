@@ -42,4 +42,4 @@ Submit a pull request
 ## Additional Documentation
 * 
 ## License
-[MIT License](https://github.com/tbergdahl/InventoryManagement/blob/main/License.txt)
+Copyright (https://github.com/tbergdahl/InventoryManagement) [2025]
