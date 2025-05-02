@@ -41,7 +41,7 @@ Push: git push origin feature-xyz
 Submit a pull request 
 ## Additional Documentation
 * Sprint-3 : https://github.com/shamney/Shampurnad.github.io/blob/main/sprint_report-3.md
-* README Ffile[README_Template.md]: https://github.com/shamney/Shampurnad.github.io/blob/main/README_Template.md
+* README file[README_Template.md]: https://github.com/shamney/Shampurnad.github.io/blob/main/README_Template.md
 ## License
 
 This project is licensed under the MIT License.  
