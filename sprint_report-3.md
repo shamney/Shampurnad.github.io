@@ -45,6 +45,7 @@ Spend more time estimating difficulty of tasks
 Split frontend and backend tasks earlier in the sprint
 Better time allocation for final testing and polish
 
+## Videos- https://drive.google.com/file/d/1sF3qoEmu4tpGfDCUE8B_j389qoVLhbKH/view?usp=sharing 
 ## Plans for the next:
 Implement report export (PDF/CSV)
 Add user roles for employees/volunteers
