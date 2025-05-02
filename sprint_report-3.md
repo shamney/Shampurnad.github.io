@@ -39,6 +39,7 @@ https://github.com/shamney/Shampurnad.github.io/blob/main/apps/inventory/urls.py
 https://github.com/shamney/Shampurnad.github.io/blob/main/apps/inventory/templatetags/custom_filters.py
 
 User Management
+
 https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/views.py
 https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/urls.py
 https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/templates/user_dashboard.html
@@ -49,6 +50,7 @@ https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/t
 https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/templates/reset_password/password_reset_done.html
 
 Testing
+
 https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/tests_selenium.py
 https://github.com/shamney/Shampurnad.github.io/blob/unit-testing/apps/user_management/tests.py
 
