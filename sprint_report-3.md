@@ -30,11 +30,20 @@ Export reports to PDF/CSV – I ran out of time after prioritizing security and 
 Add email notifications for low stock – Backend logic implemented but email templates not finished
 
 ## Code Files for Review
-
-views.py
-threshold_list.html
-tests_selenium.py
-Retrospective Summary
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/inventory/templates/inventory_home.html
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/inventory/templates/threshold_list.html
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/inventory/views.py 
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/inventory/urls.py
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/inventory/templatetags/custom_filters.py
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/tests_selenium.py
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/views.py
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/urls.py
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/templates/user_dashboard.html
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/templates/verify_otp.html
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/templates/reset_password/password_reset.html
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/templates/reset_password/password_reset_complete.html
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/templates/reset_password/password_reset_confirm.html
+https://github.com/shamney/Shampurnad.github.io/blob/main/apps/user_management/templates/reset_password/password_reset_done.html
 
 ## What went well:
 Good teamwork and consistent progress across sprints
