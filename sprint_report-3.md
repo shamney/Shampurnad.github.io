@@ -13,7 +13,7 @@ During this sprint, our team focused on completing core inventory workflows and 
 
 ## Unfinished Work
 
-We were not able to fully implement the feature for downloadable/exportable reports (e.g., PDF or CSV) from the dashboard due to time constraints.
+I was not able to fully implement the feature for downloadable/exportable reports (e.g., PDF or CSV) from the dashboard due to time constraints.
 Progress has been tracked and commented on GitHub, and this feature has been added to the next sprint for follow-up.
 
 ## Completed Issues/User Stories
@@ -26,7 +26,7 @@ Add password reset via email link
 
 ## Incomplete Issues/User Stories
 
-Export reports to PDF/CSV – We ran out of time after prioritizing security and dashboard integration
+Export reports to PDF/CSV – I ran out of time after prioritizing security and dashboard integration
 Add email notifications for low stock – Backend logic implemented but email templates not finished
 
 ## Code Files for Review
